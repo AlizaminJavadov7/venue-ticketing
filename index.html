@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caspian Opera Hall – Choose your seats</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Caspian Opera Hall</h1>
+      <p class="sub">Select a seat to inspect it, then add it to your cart.</p>
+    </div>
+    <ul id="prices" class="prices" aria-label="Price categories"></ul>
+  </header>
+
+  <main class="layout">
+    <section class="map-area" aria-label="Venue map">
+      <div class="controls" role="group" aria-label="Map controls">
+        <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+        <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+        <div class="dpad">
+          <button id="move-up" type="button" aria-label="Move up" title="Move up">▲</button>
+          <button id="move-left" type="button" aria-label="Move left" title="Move left">◀</button>
+          <button id="reset" type="button" aria-label="Reset and center view" title="Reset / Center view">⟲</button>
+          <button id="move-right" type="button" aria-label="Move right" title="Move right">▶</button>
+          <button id="move-down" type="button" aria-label="Move down" title="Move down">▼</button>
+        </div>
+      </div>
+      <div id="viewport" class="viewport">
+        <div id="world" class="world"></div>
+      </div>
+      <ul class="legend" aria-label="Seat states">
+        <li><span class="seat sw"></span>Available</li>
+        <li><span class="seat sw inspected"></span>Inspected</li>
+        <li><span class="seat sw incart"></span>In cart</li>
+        <li><span class="seat sw sold"></span>Unavailable</li>
+      </ul>
+    </section>
+
+    <aside class="side">
+      <section class="panel" aria-labelledby="det-h">
+        <h2 id="det-h">Seat details</h2>
+        <div id="details" class="details"><p class="muted">Click a seat on the map to see its details.</p></div>
+        <button id="add" type="button" class="primary" disabled>Add to cart</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="cart-h">
+        <h2 id="cart-h">Your cart <span id="count" class="badge">0</span></h2>
+        <ul id="cart" class="cart"></ul>
+        <p id="empty" class="muted">Your cart is empty.</p>
+        <div class="total"><span>Total</span><strong id="total">0 ₼</strong></div>
+        <button id="clear" type="button" class="ghost" disabled>Clear cart</button>
+      </section>
+    </aside>
+  </main>
+
+  <script src="venue-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
